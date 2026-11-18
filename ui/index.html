@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PathSnap · Route reconstruction</title>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="brand"><span class="mark" aria-hidden="true">↗</span>PathSnap</div><div id="status" role="status"><i></i><span>Connecting</span></div></header>
+<main>
+<aside>
+<h1>Route <br>reconstruction</h1>
+<div class="field"><label for="api">Model server</label><div class="connect"><input type="url" id="api" spellcheck="false"><button id="connect">Connect</button></div></div>
+<div class="field"><label for="trip">Trip</label><select id="trip" disabled><option>Loading trips…</option></select><small id="split"></small></div>
+<button id="run" disabled>Match route <span aria-hidden="true">↗</span></button>
+<p id="notice" aria-live="polite"></p>
+<section id="details" hidden><h2>Run details</h2><dl><dt>Model</dt><dd id="model"></dd><dt>GPS observations</dt><dd id="observations"></dd><dt>Route sections</dt><dd id="segments"></dd><dt>Inference time</dt><dd id="time"></dd></dl></section>
+</aside>
+<section class="map-section"><div class="map-head"><h2 id="title">Trip map</h2><span id="mapid"></span></div>
+<div id="map" aria-label="Interactive road map"></div>
+<div class="key"><span><i class="pred"></i>Predicted route</span><span><i class="gps"></i>GPS observations</span><span><i class="road"></i>Road network</span></div>
+<section class="metrics"><div><span>Top-1 agreement</span><strong id="top1">—</strong></div><div><span>Route continuity</span><strong id="continuity">—</strong></div><div><span>Ordered route F1</span><strong id="ordered">—</strong></div></section></section>
+</main><script src="vendor/leaflet.js"></script><script src="app.js"></script></body></html>
