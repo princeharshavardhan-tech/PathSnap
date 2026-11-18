@@ -1,0 +1,27 @@
+{
+  "model": "LightGBM",
+  "params": {
+    "rounds": 70,
+    "num_leaves": 23,
+    "learning_rate": 0.09,
+    "min_data_in_leaf": 45
+  },
+  "features": [
+    "log_distance",
+    "log_distance_excess",
+    "heading_cos",
+    "incoming_cos",
+    "outgoing_cos",
+    "log_speed",
+    "log_arc_length",
+    "log_endpoint_margin",
+    "fraction"
+  ],
+  "k": 8,
+  "beta_m": 6.0,
+  "max_gap_s": 30.0,
+  "candidate_limit_m": 400,
+  "seed": 817,
+  "fit_observations": 20800,
+  "weights": "selected.txt"
+}
