@@ -5,4 +5,5 @@ __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 *.zip
+!data_archives/*.zip
 outputs/example_map.html

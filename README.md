@@ -4,7 +4,7 @@ PathSnap matches a noisy GPS trip to directed road segments. A FastAPI server sc
 
 ## Run the demonstration
 
-Use Python 3.12. From the extracted project directory, run the following in Windows PowerShell. The private project download includes the original 80 training and 10 student-test trips in `data/`. For a public GitHub checkout, copy the supplied `train` and `student_test` folders from inside the course archive's `Student folder` directly into `data`. The expected layout is `data/student_test/00000052/00000052.track`.
+Use Python 3.12. From the extracted project directory, run the following in Windows PowerShell. The private project download includes the original 80 training and 10 student-test trips already extracted in `data/`. Its manifest can verify these files without storing duplicate ZIPs. For a GitHub checkout, run `py -3.12 -m pathsnap.unpack` on Windows or `python3.12 -m pathsnap.unpack` on Linux or macOS. It restores the original files from `data_archives/` and verifies their SHA-256 checksums. The expected layout is `data/student_test/00000052/00000052.track`.
 
 ```powershell
 py -3.12 -m venv .venv
@@ -78,8 +78,11 @@ The fifth model learns match-versus-background feature likelihoods and a distanc
 | `pathsnap/decoder.py` | Directed network transitions, bounded shortest paths, Viterbi and ordered sequence metric |
 | `models/` | Final native model and inference configuration |
 | `pathsnap/api.py`, `service.py`, `ui/` | API, inference pipeline and evaluator interface |
+| `data_archives/` | Three lossless ZIPs and a SHA-256 file manifest for the original 80 training and 10 student-test trips on GitHub |
 | `outputs/` | Fold assignments, inventory, five baseline logs, search trials, predictions, charts and live API checks |
 | `pathsnap/visualize.py` | Folium HTML with four toggleable layers and print figures. Run locally to regenerate the interactive map |
 | `PathSnap_Technical_Report.pdf` | Consolidated report, metrics, screenshots, limitations and experiment details |
 
 The classroom two-laptop demonstration and the hidden evaluator split require the organisers' machines and data. The included evidence was produced by two local services using the supplied student-test split. This implementation, experiment execution and report were prepared with AI assistance. Review the code and rerun the experiments as part of your team's independent evaluation.
+
+To regenerate the PDF from the saved results and demo captures, run `python -m pathsnap.report`.
